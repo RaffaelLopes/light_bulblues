@@ -50,6 +50,48 @@ button {
 #ligar:hover {
   background-color: #388e3c; /* escurece a cor do botão no hover */
 }
+
+/* Estilos da pergunta e botões de resposta */
+#resposta-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+#pergunta {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#botoes-resposta {
+  display: flex;
+}
+
+#sim,
+#nao {
+  margin: 0 5px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#sim {
+  background-color: #4CAF50; /* verde para o botão "Sim" */
+}
+
+#nao {
+  background-color: #f44336; /* vermelho para o botão "Não" */
+}
+
+#sim:hover,
+#nao:hover {
+  background-color: #388e3c; /* escurece a cor do botão no hover */
+}
+
+/* Estilos do rodapé */
 footer {
   position: absolute;
   bottom: 0;
@@ -59,3 +101,4 @@ footer {
   color: #888;
   margin-bottom: 10px;
 }
+
