@@ -1,0 +1,61 @@
+/* Estilos gerais */
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+/* Estilos da lâmpada */
+#lampada {
+  width: 220px;
+  margin-bottom: 30px;
+  transform: scale(1.1); /* aumenta o tamanho da lâmpada em 10% */
+}
+
+/* Estilos dos botões */
+button {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#ligar {
+  background-color: #4CAF50; /* verde para o botão ligar */
+}
+
+#desligar {
+  background-color: #f44336; /* vermelho para o botão desligar */
+}
+
+#quebrar {
+  background-color: black; /* preto para o botão quebrar */
+  color: white;
+}
+
+#desligar:hover,
+#quebrar:hover {
+  background-color: #b71c1c; /* escurece a cor do botão no hover */
+}
+
+#ligar:hover {
+  background-color: #388e3c; /* escurece a cor do botão no hover */
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 10px;
+}
