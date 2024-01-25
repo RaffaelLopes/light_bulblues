@@ -1,39 +1,27 @@
-// Obtém a referência do elemento da lâmpada e dos botões
+// Obtém a referência do elemento da lâmpada e do botão
 const lampada = document.getElementById('lampada');
 const btnLigar = document.getElementById('ligar');
 
-// Função chamada ao clicar no botão "Ligar"
-function ligarLampada() {
-  // Verifica se a lâmpada está quebrada
-  if (lampada.src.includes("lamp_broken")) {
-    // Se quebrada, exibe um alerta, recarrega a página e encerra a função
-    alert("A lâmpada está quebrada. Recarregando a página.");
-    location.reload();
-    return;
-  }
+// Adiciona ouvinte de evento ao botão "Ligar"
+btnLigar.addEventListener('click', exibirPergunta);
 
-  // Pede ao usuário se gosta de blues
-  const resposta = prompt("Você gosta de blues? sim ou não");
+// Adiciona ouvinte de evento aos botões "Sim" e "Não"
+const btnSim = document.getElementById('sim');
+const btnNao = document.getElementById('nao');
 
-  if (resposta) {
-    // Converte a resposta para minúsculas para tratamento mais flexível
-    const respostaFormatada = resposta.toLowerCase();
+btnSim.addEventListener('click', () => {
+  ascenderLampada();
+  setTimeout(() => {
+    window.location.href = "https://alura-flix-blues-stream.vercel.app/";
+  }, 1500);
+});
 
-    // Executa ações com base na resposta
-    if (respostaFormatada === "sim") {
-      // Se sim, ascende a lâmpada e redireciona para a página de blues após 1 segundos
-      ascenderLampada();
-      setTimeout(() => {
-        window.location.href = "https://alura-flix-blues-stream.vercel.app/";
-      }, 1000);
-    } else if (respostaFormatada === "não") {
-      // Se não, quebra a lâmpada e recarrega a página após 1 segundo
-      quebrarLampada();
-    } else {
-      // Se resposta inválida, exibe um alerta
-      alert("Digite uma opção válida.");
-    }
-  }
+btnNao.addEventListener('click', () => {
+  quebrarLampada();
+});
+
+function exibirPergunta() {
+  document.getElementById('resposta-container').style.display = 'block';
 }
 
 // Função para ascender a lâmpada
@@ -51,12 +39,3 @@ function quebrarLampada() {
   }, 1000);
 }
 
-// Função para restaurar os botões
-function restaurarBotoes() {
-  btnLigar.disabled = false; // Habilita o botão "Ligar"
-  lampada.src = "images/lamp_off.jpg"; // Reseta a imagem para desligado ao restaurar os botões
-}
-
-// Adiciona ouvintes de eventos aos elementos
-btnLigar.addEventListener('click', ligarLampada);
-lampada.addEventListener('click', restaurarBotoes);
